@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ParseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/parse', [ParseController::class, 'parse']);
+Route::post('/get-quantity', [ParseController::class, 'getQuantityGroupedByDate']);
